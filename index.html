@@ -3,139 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="theme-color" content="#080d17" />
-    <meta name="description" content="A six-level Toronto getaway starring the Toronto Trash Tank raccoon." />
+    <meta name="theme-color" content="#10131f" />
+    <meta name="description" content="Six levels of Toronto chaos starring the Toronto Trash Tank raccoon." />
     <title>Toronto Trash Tank</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307150f'/%3E%3Cpath d='M13 34c7-15 22-21 35-12 7 5 3 14-5 12-5-1-5-7-1-8-9-5-17 2-20 10-2 6-7 10-12 9' fill='none' stroke='%238fe36a' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='48' cy='24' r='2' fill='%23fff7d6'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="style.css?v=20261006-toronto-refresh1" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310131f'/%3E%3Cpath d='M14 40c7-8 11-22 23-22 8 0 14 6 14 13 0 6-4 10-11 10H25c-5 0-8 3-11 7' fill='%2373777a'/%3E%3Ccircle cx='41' cy='27' r='2' fill='%23f5f3ed'/%3E%3Cpath d='M16 28l-5-8 11 3m16-6-2-8 9 7' fill='%23f5f3ed'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css?v=20261006-toronto-layout2" />
   </head>
   <body>
     <main class="game-shell">
-      <header class="game-header">
-        <div>
-          <p class="eyebrow">TORONTO’S MOST WANTED WILDLIFE</p>
-          <h1>TORONTO TRASH TANK</h1>
+      <header class="topbar">
+        <a class="brand-lockup" href="./" aria-label="Toronto Trash Tank home">
+          <span class="brand-mark" aria-hidden="true"><span>TT</span></span>
+          <span class="brand-copy">
+            <span class="eyebrow">AFTER-HOURS ANIMAL CONTROL</span>
+            <h1>TORONTO <em>TRASH TANK</em></h1>
+          </span>
+        </a>
+        <div class="top-actions">
+          <span class="live-status"><i aria-hidden="true"></i> CITY FEED LIVE</span>
+          <button id="soundButton" class="sound-button" type="button" aria-pressed="true" aria-label="Turn sound off">SOUND: ON</button>
         </div>
-        <button id="soundButton" class="icon-button" type="button" aria-pressed="true" aria-label="Turn sound off">SOUND: ON</button>
       </header>
 
-      <section class="stage-wrap" aria-label="Toronto Trash Tank game">
-        <canvas id="game" width="960" height="540" tabindex="0" aria-label="Gecko Escape. Choose a character, use arrow keys or WASD to move, Space to jump, and E for your ability."></canvas>
+      <div class="dispatch-strip">
+        <div><span class="dispatch-label">MUNICIPAL INCIDENT</span><strong>RACCOON AT LARGE</strong></div>
+        <span class="dispatch-side">SIX LEVELS · ZERO PERMITS · ONE TRASH PANDA</span>
+      </div>
 
-        <div id="overlay" class="overlay">
-          <div class="panel">
-            <p id="panelKicker" class="panel-kicker">TORONTO TRASH TANK</p>
-            <h2 id="panelTitle">The dumpster lid is open.</h2>
-            <p id="panelText">The city never saw a getaway coming.</p>
-            <div id="characterSelect" class="character-select hidden" aria-label="Choose your escape artist">
-              <button type="button" class="character-card" data-character="chameleon">
-                <span class="character-icon chameleon-icon" aria-hidden="true">◉</span>
-                <strong>CHAMELEON</strong>
-                <small>Catches bugs with its tongue and changes colour to camouflage.</small>
-              </button>
-              <button type="button" class="character-card" data-character="crested">
-                <span class="character-icon crested-icon" aria-hidden="true">♛</span>
-                <strong>CRESTED GECKO</strong>
-                <small>Uses a short tongue for nearby prey and drops its tail to escape danger.</small>
-              </button>
-              <button type="button" class="character-card" data-character="newt">
-                <span class="character-icon newt-icon" aria-hidden="true">●</span>
-                <strong>FIRE-BELLY NEWT</strong>
-                <small>Regenerates health behind a temporary shield, uses toxic defence, and never needs air.</small>
-              </button>
-              <button type="button" class="character-card" data-character="frog">
-                <span class="character-icon frog-icon" aria-hidden="true">●</span>
-                <strong>AZUREUS DART FROG</strong>
-                <small>Power-leaps through the air and catches prey with its tongue.</small>
-              </button>
-              <button type="button" class="character-card" data-character="boa">
-                <span class="character-icon boa-icon" aria-hidden="true">≈</span>
-                <strong>BLACK COLOMBIAN BOA</strong>
-                <small>Coils to constrict hazards and strikes living enemies.</small>
-              </button>
-              <button type="button" class="character-card" data-character="raccoon">
-                <span class="character-icon raccoon-icon" aria-hidden="true">🦝</span>
-                <strong>TORONTO TRASH TANK (RACCOON)</strong>
-                <small>Bites living enemies and weaponizes municipal waste with a trash-lid shield.</small>
-              </button>
-              <button type="button" class="character-card" data-character="opossum">
-                <span class="character-icon opossum-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="32" height="32"><path d="M5 25C5 12 25 9 32 19c4 6-1 13-10 13H9Z" fill="#aaa5a0"/><path d="M29 18l9 4-8 4Z" fill="#efb2ae"/><circle cx="29" cy="18" r="2" fill="#111"/><path d="M8 28C-1 29 0 37 8 35" fill="none" stroke="#efb2ae" stroke-width="2.5" stroke-linecap="round"/><circle cx="13" cy="13" r="5" fill="#e6b2af"/></svg></span>
-                <strong>VIRGINIA OPOSSUM</strong>
-                <small>Hisses to stun nearby enemies and plays dead to avoid danger.</small>
-              </button>
-              <button type="button" class="character-card" data-character="bat">
-                <span class="character-icon bat-icon" aria-hidden="true">🦇</span>
-                <strong>EGYPTIAN FRUIT BAT</strong>
-                <small>Flies automatically, hangs upside down, and uses echolocation to reveal food.</small>
-              </button>
-              <button type="button" class="character-card" data-character="goat">
-                <span class="character-icon goat-icon" aria-hidden="true">♑</span>
-                <strong>GOAT</strong>
-                <small>Headbutts enemies and launches into an unreasonable mountain scramble.</small>
-              </button>
-              <button type="button" class="character-card" data-character="highland">
-                <span class="character-icon highland-icon" aria-hidden="true">♉</span>
-                <strong>HIGHLAND COW</strong>
-                <small>Tosses enemies with its horns and becomes an unstoppable wall of hair.</small>
-              </button>
-              <button type="button" class="character-card" data-character="devilfox">
-                <span class="character-icon devilfox-icon" aria-hidden="true">♢</span>
-                <strong>FOX</strong>
-                <small>Pounces on enemies and blinks through danger in a cloud of beautiful misconduct.</small>
-              </button>
-              <button type="button" class="character-card hidden" data-character="foxLab">
-                <span class="character-icon devilfox-icon" aria-hidden="true">🦊</span>
-                <strong>EXPERIMENTAL FOX</strong>
-                <small>Separate movement prototype. Run, turn, jump, and land.</small>
-              </button>
-              <button type="button" class="character-card hidden" data-character="foxAlt">
-                <span class="character-icon devilfox-icon" aria-hidden="true">🦊</span>
-                <strong>ALT FOX</strong>
-                <small>Saved version of the fox movement prototype.</small>
-              </button>
+      <section class="arcade-layout" aria-label="Toronto Trash Tank arcade game">
+        <aside class="mission-rail">
+          <section class="brief-card">
+            <div class="brief-top"><span>FIELD BRIEF</span><span class="brief-number">01—06</span></div>
+            <div class="raccoon-stamp" aria-hidden="true">TT</div>
+            <h2>The city left the lid open.</h2>
+            <p>One clever raccoon. Six increasingly questionable escape plans.</p>
+            <div class="brief-rule"></div>
+            <span class="objective-label">YOUR OBJECTIVE</span>
+            <p class="objective-copy">Grab every trash treasure, dodge the authorities, and reach the exit.</p>
+          </section>
+
+          <section class="ability-card" aria-label="Raccoon abilities">
+            <span class="rail-label">FIELD KIT</span>
+            <div class="ability-row">
+              <span class="ability-symbol bite-symbol" aria-hidden="true">B</span>
+              <span><strong>BITE</strong><small>Clear a path</small></span>
+              <kbd>E</kbd>
             </div>
-            <div id="levelSelect" class="character-select hidden" aria-label="Choose a level">
-              <button type="button" class="character-card" data-level="0"><strong>LEVEL 1</strong><small>Enclosure</small></button>
-              <button type="button" class="character-card" data-level="1"><strong>LEVEL 2</strong><small>Aquarium</small></button>
-              <button type="button" class="character-card" data-level="2"><strong>LEVEL 3</strong><small>Kitchen</small></button>
-              <button type="button" class="character-card" data-level="3"><strong>LEVEL 4</strong><small>Living Room</small></button>
-              <button type="button" class="character-card" data-level="4"><strong>LEVEL 5</strong><small>Highway</small></button>
-              <button type="button" class="character-card" data-level="5"><strong>LEVEL 6</strong><small>Boat Escape</small></button>
-              <button type="button" class="character-card hidden" data-level="6"><strong>FOX MOVEMENT LAB</strong><small>Experimental Fox</small></button>
+            <div class="ability-row">
+              <span class="ability-symbol shield-symbol" aria-hidden="true">↗</span>
+              <span><strong>TRASH SHIELD</strong><small>Lid up, trouble down</small></span>
+              <kbd>R</kbd>
             </div>
-            <div class="start-actions">
-              <button id="primaryButton" class="primary-button" type="button">BEGIN ESCAPE</button>
-              <button id="secondaryButton" class="secondary-button hidden" type="button">LEVEL SELECT</button>
+          </section>
+
+          <div class="city-tag"><span class="city-dot"></span> TORONTO, ONTARIO <span>43° 39′ N</span></div>
+        </aside>
+
+        <div class="play-column">
+          <div class="screen-heading">
+            <div><span class="screen-eyebrow">SURVEILLANCE CAM 01</span><strong>THE GETAWAY FEED</strong></div>
+            <span class="screen-location"><i></i> LIVE</span>
+          </div>
+
+          <section class="stage-wrap" aria-label="Toronto Trash Tank game">
+            <canvas id="game" width="960" height="540" tabindex="0" aria-label="Toronto Trash Tank. Move with arrow keys or WASD, Space to jump, E to bite, and R for a trash shield."></canvas>
+
+            <div id="overlay" class="overlay">
+              <div class="panel">
+                <p id="panelKicker" class="panel-kicker">TORONTO TRASH TANK</p>
+                <h2 id="panelTitle">The dumpster lid is open.</h2>
+                <p id="panelText">The city never saw a getaway coming.</p>
+                <div id="characterSelect" class="character-select hidden" aria-label="Choose your escape artist">
+                  <button type="button" class="character-card" data-character="raccoon">
+                    <span class="character-icon raccoon-icon" aria-hidden="true">🦝</span>
+                    <strong>TORONTO TRASH TANK</strong>
+                    <small>Bites trouble and weaponizes municipal waste.</small>
+                  </button>
+                </div>
+                <div id="levelSelect" class="character-select level-select hidden" aria-label="Choose a level">
+                  <button type="button" class="character-card" data-level="0"><strong>LEVEL 1</strong><small>Dumpster Den</small></button>
+                  <button type="button" class="character-card" data-level="1"><strong>LEVEL 2</strong><small>CN Tower</small></button>
+                  <button type="button" class="character-card" data-level="2"><strong>LEVEL 3</strong><small>Restaurant Heist</small></button>
+                  <button type="button" class="character-card" data-level="3"><strong>LEVEL 4</strong><small>Parachute Escape</small></button>
+                  <button type="button" class="character-card" data-level="4"><strong>LEVEL 5</strong><small>Cheese Getaway</small></button>
+                  <button type="button" class="character-card" data-level="5"><strong>LEVEL 6</strong><small>Boat Escape</small></button>
+                </div>
+                <div class="start-actions">
+                  <button id="primaryButton" class="primary-button" type="button">START LEVEL</button>
+                  <button id="secondaryButton" class="secondary-button hidden" type="button">LEVEL SELECT</button>
+                </div>
+                <div id="crestedSkinSelect" class="crest-skin-select hidden" role="group" aria-label="Character options"></div>
+              </div>
             </div>
-            <div id="crestedSkinSelect" class="crest-skin-select hidden" role="group" aria-label="Choose crested gecko pattern">
-              <span>CRESTED GECKO PATTERN</span>
-              <button type="button" data-crestie-skin="classic" aria-pressed="true">Classic</button>
-              <button type="button" data-crestie-skin="super-dalmatian" aria-pressed="false">Super Dalmatian</button>
-              <button type="button" data-crestie-skin="halloween" aria-pressed="false">Harlequin / Halloween</button>
+
+            <div id="hud" class="hud hidden" aria-live="polite">
+              <span id="levelLabel">LEVEL 1</span>
+              <span id="bugLabel">TRASH TREASURES 0/0</span>
+              <span id="abilityLabel">BITE READY</span>
+              <span id="lifeLabel">♥ ♥ ♥</span>
+            </div>
+          </section>
+
+          <div class="controls-row">
+            <div class="keyboard-help" aria-label="Keyboard controls">
+              <div class="control-tile move-tile"><span class="control-caption">MOVE</span><div class="key-cluster"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></div><small>OR ARROW KEYS</small></div>
+              <div class="control-tile"><span class="control-caption">JUMP</span><kbd class="wide-key">SPACE</kbd></div>
+              <div class="control-tile"><span class="control-caption">BITE</span><kbd class="wide-key">E</kbd></div>
+              <div class="control-tile"><span class="control-caption">TRASH SHIELD</span><kbd class="wide-key">R</kbd></div>
+            </div>
+            <div class="touch-controls" aria-label="Touch controls">
+              <div class="touch-dpad">
+                <button type="button" data-control="left" aria-label="Move left">◀</button>
+                <button type="button" data-control="right" aria-label="Move right">▶</button>
+              </div>
+              <div class="touch-actions">
+                <button type="button" data-control="jump" aria-label="Jump">JUMP</button>
+                <button id="abilityButton" type="button" data-control="primary" class="ability-control" aria-label="Use bite">BITE</button>
+                <button id="tongueButton" type="button" data-control="secondary" class="tongue-control" aria-label="Use trash shield">SHIELD</button>
+                <button type="button" data-control="investigate" class="hidden" aria-label="Investigate">SNIFF</button>
+              </div>
             </div>
           </div>
         </div>
-
-        <div id="hud" class="hud hidden" aria-live="polite">
-          <span id="levelLabel">LEVEL 1 · EASY</span>
-          <span id="bugLabel">BUGS 0/3</span>
-          <span id="abilityLabel">ABILITY READY</span>
-          <span id="lifeLabel">♥ ♥ ♥</span>
-        </div>
       </section>
 
-      <div class="controls-row">
-        <p class="keyboard-help"><strong>MOVE</strong> WASD / ARROWS &nbsp; <strong>JUMP</strong> SPACE &nbsp; <strong>PRIMARY</strong> E &nbsp; <strong>SECONDARY</strong> R</p>
-        <div class="touch-controls" aria-label="Touch controls">
-          <button type="button" data-control="left" aria-label="Move left">◀</button>
-          <button type="button" data-control="right" aria-label="Move right">▶</button>
-          <button type="button" data-control="jump" aria-label="Jump">↑</button>
-          <button type="button" data-control="investigate" class="hidden" aria-label="Investigate">SNIFF</button>
-          <button id="abilityButton" type="button" data-control="primary" class="ability-control" aria-label="Use primary ability">ABILITY</button>
-          <button id="tongueButton" type="button" data-control="secondary" class="tongue-control hidden" aria-label="Use secondary ability">SPECIAL</button>
-        </div>
-      </div>
+      <footer class="game-footer"><span>TORONTO TRASH TANK</span><span>UNOFFICIAL CITY BUSINESS SINCE RIGHT NOW</span></footer>
     </main>
-    <script src="game.js?v=20261006-toronto-refresh2"></script>
+    <script src="game.js?v=20261006-toronto-layout2"></script>
   </body>
 </html>
