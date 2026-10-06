@@ -556,9 +556,9 @@
       const label=button.querySelector("small");
       if(level&&label)label.textContent=level.title.replace(/^The\s+/i,"");
     });
-    secondaryButton.textContent=fromGameplay?"BACK TO GAME":"BACK TO CHARACTERS";
+    secondaryButton.textContent=fromGameplay?"BACK TO GAME":standaloneTrashTank?"BACK TO LEVEL 1":"BACK TO CHARACTERS";
     secondaryButton.onclick=()=>{
-      if(!resumePlayAfterLevelSelect){showCharacterSelect();return;}
+      if(!resumePlayAfterLevelSelect){if(standaloneTrashTank)showIntro(0);else showCharacterSelect();return;}
       resumePlayAfterLevelSelect=false;state="playing";overlay.classList.add("hidden");hud.classList.toggle("hidden",levels[levelIndex].decor==="foxMovementLab");canvas.focus();
     };
     secondaryButton.classList.remove("hidden");
