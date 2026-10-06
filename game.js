@@ -264,7 +264,7 @@
       label:"LEVEL 2 · VERTICAL MENACE",title:"Climb the CN Tower",
       intro:"The Toronto Trash Tank has selected the tallest available bad idea. Climb the maintenance ledges, raid every snack, and reach the observation deck.",
       completeTitle:"Toronto has made a tactical error.",completeText:"The Trash Tank has reached the top. The restaurant contains rich people food and insufficient security.",
-      palette:["#5a99c2","#d4e4e8","#59636b","#ef4c45"],start:[38,438],exit:[862,72,58,94],
+      palette:["#252642","#a65f70","#59636b","#ff765f"],start:[38,438],exit:[862,72,58,94],
       platforms:[[0,500,960,40,"street"],[28,458,165,22,"concrete"],[210,402,135,18,"towerLedge"],[365,350,130,18,"towerLedge"],[520,292,130,18,"towerLedge"],[675,235,130,18,"towerLedge"],[800,166,135,20,"observation"],[585,110,125,18,"antenna"],[430,188,100,18,"towerPod"],[165,258,120,18,"service"],[215,466,76,14,"utilityBox"],[315,432,72,14,"scaffold"],[460,390,82,14,"scaffold"],[590,334,72,14,"vent"],[720,278,68,14,"service"],[842,218,72,14,"service"],[545,240,66,14,"sign"],[300,296,72,14,"service"],[92,330,74,14,"awning"],[505,148,62,14,"antenna"]],
       vines:[[184,300,18,158],[345,348,18,102],[650,230,18,125],[785,160,18,120]],
       insects:[[90,425],[268,368],[430,316],[585,258],[742,201],[860,132],[635,77],[435,144],[220,224]],
@@ -275,7 +275,7 @@
       label:"LEVEL 3 · FINE DINING FELONY",title:"The 360 Restaurant Heist",
       intro:"White tablecloths. Tiny portions. Excellent margins. Steal every fancy dish before security realizes the guest list contains one enormous raccoon.",
       completeTitle:"The tasting menu has been abolished.",completeText:"Caviar, steak, cake, and several cheeses are now evidence. The only remaining exit is dramatically downward.",
-      palette:["#151923","#3f3340","#8f6b45","#f0cc76"],start:[38,438],exit:[872,86,55,82],
+      palette:["#211d35","#583b54","#8f6b45","#64e6d7"],start:[38,438],exit:[872,86,55,82],
       platforms:[[0,500,960,40,"restaurantFloor"],[45,452,135,18,"table"],[255,452,135,18,"table"],[485,452,135,18,"table"],[715,452,135,18,"table"],[170,392,105,18,"table"],[400,392,105,18,"table"],[630,392,105,18,"table"],[255,126,50,16,"chandelier"],[455,126,50,16,"chandelier"],[655,126,50,16,"chandelier"],[760,125,170,18,"observation"]],
       vines:[[190,78,16,260],[385,78,16,260],[575,78,16,260],[765,78,16,260]],
       insects:[[90,418],[285,376],[455,356],[650,356],[840,196],[650,171],[810,91],[535,345],[735,345],[555,170],[745,170],[885,91],[0,0,false,"waiterCheese",0],[0,0,false,"waiterCheese",1]],
@@ -286,7 +286,7 @@
       label:"LEVEL 4 · GRAVITY DISPUTE",title:"Parachute Escape",
       intro:"There is no approved raccoon exit from the CN Tower. Deploy the stolen emergency parachute, catch the airborne snacks, and land somewhere that cannot issue a bill.",
       completeTitle:"A majestic garbage meteor lands.",completeText:"Toronto survives. Several pigeons file formal complaints. The Trash Tank disappears into the city with a parachute and twelve thousand dollars in cheese.",
-      palette:["#5aa9d6","#dff3f4","#506c79","#ff5b4f"],start:[38,92],exit:[872,400,58,92],
+      palette:["#514574","#ef9e83","#506c79","#ff765f"],start:[38,92],exit:[872,400,58,92],
       platforms:[[18,130,155,20,"towerRoof"],[205,198,125,18,"cloud"],[430,290,120,18,"cloud"],[700,330,125,18,"cloud"],[835,470,125,30,"rooftop"]],
       airCurrents:[[150,190,-185,95],[400,210,-210,-75],[665,190,-175,110]],
       vines:[],insects:[[110,92],[265,160],[445,232],[615,168],[755,292],[525,367],[315,342],[865,430]],
@@ -297,7 +297,7 @@
       label:"LEVEL 5 · CHEESE EMERGENCY",title:"The Great Cheese Getaway",
       intro:"The cheese haul has become legally significant. Cross the waterfront, reach Jane, and get the evidence onto her boat.",
       completeTitle:"Jane has enabled the crime.",completeText:"Raccoon, human, and an unreasonable quantity of cheese are aboard. Nobody asks sensible questions.",
-      palette:["#273747","#a7c5cf","#665747","#f0c94d"],start:[38,438],exit:[870,380,60,120],
+      palette:["#292844","#c97b79","#665747","#ffad66"],start:[38,438],exit:[870,380,60,120],
       platforms:[[0,500,790,40,"dock"],[930,500,30,40,"dock"],[55,445,150,22,"crate"],[230,390,145,22,"crate"],[405,330,145,22,"vanRoof"],[585,390,135,22,"crate"],/* Jane-side block removed */],
       vines:[[205,330,18,160],[720,270,18,180]],insects:[[115,410],[295,355],[475,295],[650,355],[800,265],[865,420]],
       hazards:[{x:250,y:448,w:65,h:52,type:"frenchie",axis:"x",min:205,max:430,speed:110},{x:500,y:430,w:70,h:70,type:"grab",axis:"x",min:460,max:690,speed:145},{x:700,y:235,w:58,h:30,type:"bird",axis:"diagonal",minX:620,maxX:870,minY:190,maxY:370,speedX:90,speedY:65,chases:true}],
@@ -307,7 +307,7 @@
       label:"LEVEL 6 · MARITIME FELONY",title:"Boat Escape",
       intro:"Jane has a boat. The raccoon has the cheese. Toronto has waves and several unanswered questions. Steer, stay upright, and flee.",
       completeTitle:"International waters were not required.",completeText:"Jane and the Trash Tank escape with every cheese wheel intact. Toronto begins the paperwork.",
-      palette:["#4b89a8","#b9dce5","#28556a","#f0c94d"],start:[170,340],exit:[9999,0,1,1],
+      palette:["#233c59","#75aebb","#28556a","#64e6d7"],start:[170,340],exit:[9999,0,1,1],
       platforms:[],vines:[],insects:[],hazards:[],decor:"boatEscape",habitat:"raccoon"
     }
   ];
@@ -388,7 +388,7 @@
       hazards:[{x:455,y:430,w:92,h:70,type:"grab",axis:"x",min:350,max:630,speed:70}]
     },
     raccoon: {
-      title:"The Dumpster Den",habitat:"raccoon",palette:["#101418","#283037","#765b3f","#f2c14e"],
+      title:"The Dumpster Den",habitat:"raccoon",palette:["#111827","#28354a","#564653","#ff8964"],
       intro:"The dumpster lid has fallen shut. Rummage through the good stuff, climb the trash corral, and escape before collection day.",
       start:[62,438],exit:[870,390,55,110],
       platforms:[[0,500,960,40,"alley"],[35,463,190,24,"trash"],[85,350,155,22,"cardboard"],[245,292,120,20,"cardboard"],[280,414,175,24,"dumpster"],[405,242,120,20,"trash"],[500,342,170,22,"dumpster"],[575,185,125,20,"cardboard"],[700,270,190,22,"fence"],[790,160,145,22,"dumpster"],[610,408,72,88,"recycling"],[72,205,112,38,"openSign"]],
@@ -1446,13 +1446,13 @@
       drawHabitatDetails(level);
       if(!["raccoon","opossum","bat","goat","highland","devilfox"].includes(level.habitat)){drawLeaves(48, 220, "#245f36");drawLeaves(665,180,"#1d4e2e");drawLeaves(720,400,"#245f36");}
     } else if (level.decor === "torontoTower") {
-      const sky=ctx.createLinearGradient(0,55,0,H);sky.addColorStop(0,"#68acd2");sky.addColorStop(1,"#d8e6e8");ctx.fillStyle=sky;ctx.fillRect(0,55,W,H-55);
+      const sky=ctx.createLinearGradient(0,55,0,H);sky.addColorStop(0,"#252642");sky.addColorStop(1,"#ef9b83");ctx.fillStyle=sky;ctx.fillRect(0,55,W,H-55);
       ctx.fillStyle="rgba(255,255,255,.72)";for(const [x,y,s] of [[90,105,1],[430,170,.8],[760,85,1.15]]){ctx.beginPath();ctx.ellipse(x,y,48*s,15*s,0,0,Math.PI*2);ctx.ellipse(x+38*s,y-5*s,35*s,18*s,0,0,Math.PI*2);ctx.fill();}
-      ctx.fillStyle="#53636c";for(let x=0;x<W;x+=58){const bh=45+(x*7)%105;ctx.fillRect(x,500-bh,48,bh);ctx.fillStyle="#d5c57a";for(let wy=500-bh+12;wy<486;wy+=18)for(let wx=x+8;wx<x+42;wx+=14)ctx.fillRect(wx,wy,5,7);ctx.fillStyle="#53636c";}
+      ctx.fillStyle="#34364d";for(let x=0;x<W;x+=58){const bh=45+(x*7)%105;ctx.fillRect(x,500-bh,48,bh);ctx.fillStyle="#ffc77a";for(let wy=500-bh+12;wy<486;wy+=18)for(let wx=x+8;wx<x+42;wx+=14)ctx.fillRect(wx,wy,5,7);ctx.fillStyle="#53636c";}
       ctx.fillStyle="#aab2b6";ctx.beginPath();ctx.moveTo(445,500);ctx.lineTo(468,130);ctx.lineTo(492,130);ctx.lineTo(515,500);ctx.closePath();ctx.fill();
       ctx.fillStyle="#7b858a";ctx.beginPath();ctx.moveTo(414,188);ctx.quadraticCurveTo(480,155,546,188);ctx.lineTo(530,225);ctx.lineTo(430,225);ctx.closePath();ctx.fill();
       ctx.fillStyle="#dfe5e6";ctx.fillRect(474,63,12,112);ctx.fillStyle="#c33d3d";ctx.fillRect(477,42,6,28);
-      ctx.fillStyle="#183e61";roundedRect(38,70,190,55,5);ctx.fill();ctx.strokeStyle="#f4f7f7";ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#fff";ctx.textAlign="center";ctx.font="800 11px system-ui";ctx.fillText("TORONTO",133,90);ctx.font="900 17px system-ui";ctx.fillText("CN TOWER",133,112);
+      ctx.fillStyle="#293653";roundedRect(38,70,190,55,5);ctx.fill();ctx.strokeStyle="#f4f7f7";ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#fff";ctx.textAlign="center";ctx.font="800 11px system-ui";ctx.fillText("TORONTO",133,90);ctx.font="900 17px system-ui";ctx.fillText("CN TOWER",133,112);
       const towerTime=performance.now();ctx.strokeStyle="rgba(255,255,255,.42)";ctx.lineWidth=2;for(let i=0;i<12;i++){const x=((towerTime*.08+i*103)%1080)-80,y=125+(i*41)%300;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+38+(i%3)*12,y-3);ctx.stroke();}
       if(Math.floor(towerTime/420)%2===0){ctx.fillStyle="#ff3f43";for(const [x,y] of [[480,43],[438,185],[522,185]]){ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();}}
       ctx.strokeStyle="rgba(211,241,248,.75)";ctx.lineWidth=4;ctx.beginPath();ctx.ellipse(480,190,62,17,0,0,Math.PI*2);ctx.stroke();
@@ -1463,8 +1463,8 @@
       // Height markers and maintenance warnings reward anyone looking around while climbing.
       ctx.fillStyle="#f5eee0";ctx.font="900 10px system-ui";ctx.textAlign="left";for(const [y,label] of [[405,"147 m"],[300,"260 m"],[238,"346 m"]]){ctx.fillRect(535,y-13,42,17);ctx.fillStyle="#273b47";ctx.fillText(label,539,y);ctx.fillStyle="#f5eee0";}
     } else if (level.decor === "towerRestaurant") {
-      ctx.fillStyle="#211d25";ctx.fillRect(0,55,W,H-55);ctx.fillStyle="#6f263d";ctx.fillRect(0,345,W,155);ctx.strokeStyle="rgba(244,202,190,.14)";ctx.lineWidth=2;for(let y=358;y<500;y+=18){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-      const windowSky=ctx.createLinearGradient(0,70,0,335);windowSky.addColorStop(0,"#65a9ce");windowSky.addColorStop(1,"#d9e1df");ctx.fillStyle=windowSky;roundedRect(30,75,900,270,18);ctx.fill();
+      ctx.fillStyle="#1d2033";ctx.fillRect(0,55,W,H-55);ctx.fillStyle="#50354f";ctx.fillRect(0,345,W,155);ctx.strokeStyle="rgba(244,202,190,.14)";ctx.lineWidth=2;for(let y=358;y<500;y+=18){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+      const windowSky=ctx.createLinearGradient(0,70,0,335);windowSky.addColorStop(0,"#48436d");windowSky.addColorStop(1,"#efaa8a");ctx.fillStyle=windowSky;roundedRect(30,75,900,270,18);ctx.fill();
       const skylineLayers=[{c:"#91a8b2",y:360,b:[[35,117,80],[135,100,55],[225,140,72],[330,107,48],[405,155,70],[510,121,62],[600,170,80],[710,113,58],[795,147,75],[885,101,44]]},{c:"#536672",y:365,b:[[55,91,42],[165,132,52],[275,103,45],[365,145,54],[470,115,46],[560,139,54],[670,105,40],[750,165,58],[855,125,54]]}];
       for(const layer of skylineLayers){ctx.fillStyle=layer.c;for(const [x,h,w] of layer.b){ctx.fillRect(x,layer.y-h,w,h);ctx.fillStyle="rgba(237,221,159,.58)";for(let wy=layer.y-h+12;wy<layer.y-8;wy+=16)for(let wx=x+8;wx<x+w-6;wx+=14)ctx.fillRect(wx,wy,5,7);ctx.fillStyle=layer.c;}}
       ctx.fillStyle="#41525d";ctx.fillRect(438,165,44,200);ctx.beginPath();ctx.moveTo(438,165);ctx.lineTo(460,122);ctx.lineTo(482,165);ctx.fill();ctx.fillStyle="#e0cb78";for(let y=180;y<345;y+=18){ctx.fillRect(446,y,6,8);ctx.fillRect(468,y,6,8);}ctx.fillStyle="#687b85";ctx.fillRect(733,185,54,180);ctx.fillStyle="#a6bac2";ctx.fillRect(745,198,6,147);ctx.fillRect(763,198,6,147);
@@ -1478,10 +1478,10 @@
       ctx.fillStyle="#202a25";roundedRect(48,92,116,92,5);ctx.fill();ctx.strokeStyle="#d5bc7d";ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#f1dfaa";ctx.font="900 12px system-ui";ctx.fillText("TASTING MENU",106,114);ctx.font="8px system-ui";ctx.fillText("CHEESE  $47",106,136);ctx.fillText("ONE GRAPE  $19",106,152);ctx.fillText("AIR  MARKET",106,168);
       ctx.save();ctx.translate(480,468);ctx.strokeStyle="rgba(245,220,172,.18)";ctx.lineWidth=2;for(let a=0;a<Math.PI*2;a+=Math.PI/8){ctx.beginPath();ctx.moveTo(Math.cos(a)*45,Math.sin(a)*7);ctx.lineTo(Math.cos(a)*520,Math.sin(a)*78);ctx.stroke();}ctx.restore();
     } else if (level.decor === "parachute") {
-      const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,"#4c9fd2");sky.addColorStop(.65,"#cce9ed");sky.addColorStop(1,"#6f9daa");ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+      const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,"#4b3f78");sky.addColorStop(.65,"#f2a887");sky.addColorStop(1,"#8d789a");ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
       ctx.fillStyle="rgba(255,255,255,.2)";for(const [x,y,s] of [[115,215,1],[385,125,.72],[620,285,1.05],[835,175,.82]]){ctx.beginPath();ctx.ellipse(x,y,70*s,9*s,0,0,Math.PI*2);ctx.fill();}
-      ctx.fillStyle="#4f6671";for(let x=0;x<W;x+=64){const bh=40+(x*11)%145;ctx.fillRect(x,H-bh,54,bh);ctx.fillStyle="#d4c57b";for(let wy=H-bh+14;wy<H-12;wy+=19)for(let wx=x+8;wx<x+48;wx+=13)ctx.fillRect(wx,wy,5,7);ctx.fillStyle="#4f6671";}
-      ctx.fillStyle="#507f94";ctx.fillRect(0,485,W,15);ctx.strokeStyle="rgba(255,255,255,.32)";ctx.lineWidth=2;for(let x=0;x<W;x+=70){ctx.beginPath();ctx.arc(x,489,26,Math.PI,Math.PI*2);ctx.stroke();}
+      ctx.fillStyle="#34354f";for(let x=0;x<W;x+=64){const bh=40+(x*11)%145;ctx.fillRect(x,H-bh,54,bh);ctx.fillStyle="#ffd081";for(let wy=H-bh+14;wy<H-12;wy+=19)for(let wx=x+8;wx<x+48;wx+=13)ctx.fillRect(wx,wy,5,7);ctx.fillStyle="#4f6671";}
+      ctx.fillStyle="#426c83";ctx.fillRect(0,485,W,15);ctx.strokeStyle="rgba(255,255,255,.32)";ctx.lineWidth=2;for(let x=0;x<W;x+=70){ctx.beginPath();ctx.arc(x,489,26,Math.PI,Math.PI*2);ctx.stroke();}
       ctx.fillStyle="#a4adb2";ctx.beginPath();ctx.moveTo(50,500);ctx.lineTo(76,70);ctx.lineTo(98,70);ctx.lineTo(124,500);ctx.closePath();ctx.fill();ctx.fillStyle="#727e84";ctx.beginPath();ctx.ellipse(87,105,64,26,0,0,Math.PI*2);ctx.fill();
       const airTime=performance.now();ctx.strokeStyle="rgba(255,255,255,.46)";ctx.lineWidth=2;for(let i=0;i<11;i++){const x=((airTime*.1+i*121)%1080)-90,y=80+(i*47)%350;ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+28,y-7,x+64,y);ctx.stroke();}
       for(const current of level.airCurrents||[]){ctx.strokeStyle="rgba(225,250,255,.55)";ctx.lineWidth=3;for(let x=current[0]+15;x<current[0]+current[1];x+=28){ctx.beginPath();ctx.moveTo(x,395);ctx.quadraticCurveTo(x+10,330,x+3,265);ctx.stroke();ctx.beginPath();ctx.moveTo(x-4,278);ctx.lineTo(x+3,265);ctx.lineTo(x+10,278);ctx.stroke();}}
@@ -1497,15 +1497,15 @@
       // Pulsing landing beacon and windsock make the destination readable in motion.
       ctx.strokeStyle=`rgba(255,226,83,${.35+.35*Math.abs(Math.sin(airTime*.006))})`;ctx.lineWidth=3;ctx.beginPath();ctx.arc(895,474,50+Math.sin(airTime*.006)*8,Math.PI,Math.PI*2);ctx.stroke();ctx.strokeStyle="#dde6e7";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(830,475);ctx.lineTo(830,432);ctx.stroke();ctx.fillStyle="#e15043";ctx.beginPath();ctx.moveTo(830,434);ctx.lineTo(858,442);ctx.lineTo(830,450);ctx.closePath();ctx.fill();
     } else if(level.decor==="cheeseGetaway"){
-      const dusk=ctx.createLinearGradient(0,55,0,500);dusk.addColorStop(0,"#506d82");dusk.addColorStop(1,"#d59b73");ctx.fillStyle=dusk;ctx.fillRect(0,55,W,445);
-      ctx.fillStyle="#2f414b";for(let x=0;x<760;x+=75){const h=90+(x%140);ctx.fillRect(x,500-h,62,h);ctx.fillStyle="#e7c76c";for(let y=500-h+15;y<480;y+=22)for(let wx=x+9;wx<x+55;wx+=17)ctx.fillRect(wx,y,6,8);ctx.fillStyle="#2f414b";}
-      ctx.fillStyle="#244f62";ctx.fillRect(0,470,W,30);ctx.strokeStyle="#8f7254";ctx.lineWidth=8;for(let x=20;x<W;x+=90){ctx.beginPath();ctx.moveTo(x,430);ctx.lineTo(x,500);ctx.stroke();}
+      const dusk=ctx.createLinearGradient(0,55,0,500);dusk.addColorStop(0,"#343254");dusk.addColorStop(1,"#da8e83");ctx.fillStyle=dusk;ctx.fillRect(0,55,W,445);
+      ctx.fillStyle="#303449";for(let x=0;x<760;x+=75){const h=90+(x%140);ctx.fillRect(x,500-h,62,h);ctx.fillStyle="#ffc77a";for(let y=500-h+15;y<480;y+=22)for(let wx=x+9;wx<x+55;wx+=17)ctx.fillRect(wx,y,6,8);ctx.fillStyle="#2f414b";}
+      ctx.fillStyle="#285366";ctx.fillRect(0,470,W,30);ctx.strokeStyle="#8f7254";ctx.lineWidth=8;for(let x=20;x<W;x+=90){ctx.beginPath();ctx.moveTo(x,430);ctx.lineTo(x,500);ctx.stroke();}
       // Jane now has a visible all-black outfit with arms, hands, legs, and shoes.
-      ctx.save();ctx.translate(846,402);ctx.fillStyle="#09090b";roundedRect(-13,8,26,30,6);ctx.fill();
-      ctx.beginPath();ctx.moveTo(-11,34);ctx.lineTo(-2,34);ctx.lineTo(-3,64);ctx.lineTo(-11,64);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(2,34);ctx.lineTo(11,34);ctx.lineTo(11,64);ctx.lineTo(3,64);ctx.closePath();ctx.fill();
+      ctx.save();ctx.translate(846,402);ctx.fillStyle="#09090b";roundedRect(-13,8,26,42,6);ctx.fill();
+      ctx.beginPath();ctx.moveTo(-11,46);ctx.lineTo(-2,46);ctx.lineTo(-3,64);ctx.lineTo(-11,64);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(2,46);ctx.lineTo(11,46);ctx.lineTo(11,64);ctx.lineTo(3,64);ctx.closePath();ctx.fill();
       ctx.fillStyle="#050506";roundedRect(-14,62,12,6,2);ctx.fill();roundedRect(2,62,13,6,2);ctx.fill();
-      ctx.strokeStyle="#09090b";ctx.lineWidth=6;ctx.lineCap="round";ctx.lineJoin="round";ctx.beginPath();ctx.moveTo(-10,13);ctx.lineTo(-15,24);ctx.lineTo(-13,34);ctx.stroke();ctx.beginPath();ctx.moveTo(10,13);ctx.lineTo(15,24);ctx.lineTo(13,34);ctx.stroke();
-      ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.arc(-13,36,2.8,0,Math.PI*2);ctx.arc(13,36,2.8,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle="#09090b";ctx.lineWidth=6;ctx.lineCap="round";ctx.lineJoin="round";ctx.beginPath();ctx.moveTo(-10,13);ctx.lineTo(-15,24);ctx.lineTo(-13,46);ctx.stroke();ctx.beginPath();ctx.moveTo(10,13);ctx.lineTo(15,24);ctx.lineTo(13,46);ctx.stroke();
+      ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.arc(-13,48,2.8,0,Math.PI*2);ctx.arc(13,48,2.8,0,Math.PI*2);ctx.fill();
       ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-13,-7);ctx.quadraticCurveTo(-18,8,-15,31);ctx.lineTo(-10,31);ctx.lineTo(-9,5);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(13,-7);ctx.quadraticCurveTo(18,8,15,31);ctx.lineTo(10,31);ctx.lineTo(9,5);ctx.closePath();ctx.fill();
       ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.ellipse(0,0,12,13,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-12,-2);ctx.quadraticCurveTo(-14,-16,0,-16);ctx.quadraticCurveTo(14,-16,12,-2);ctx.quadraticCurveTo(6,-8,0,-8);ctx.quadraticCurveTo(-6,-8,-12,-2);ctx.fill();
       ctx.strokeStyle="#694435";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,-15);ctx.quadraticCurveTo(2,-11,0,-8);ctx.stroke();ctx.fillStyle="#684328";ctx.beginPath();ctx.arc(-5,0,1.7,0,Math.PI*2);ctx.arc(5,0,1.7,0,Math.PI*2);ctx.fill();ctx.fillStyle="#fff";ctx.font="900 11px system-ui";ctx.textAlign="center";ctx.fillText("JANE",0,-24);ctx.restore();
@@ -2980,7 +2980,6 @@
     document.title="Toronto Trash Tank";
     document.querySelector(".eyebrow").textContent="TORONTO’S MOST WANTED WILDLIFE";
     document.querySelector("h1").textContent="TORONTO TRASH TANK";
-    document.querySelector(".edition-links").innerHTML='<a href="https://savannahsidle.github.io/GeckoEscape/">GECKO ESCAPE</a>';
     canvas.setAttribute("aria-label","Toronto Trash Tank. Move with arrow keys or WASD, Space to jump, E to bite, and R for a trash shield.");
     applyCharacterHabitat();
     abilityButton.textContent=characters.raccoon.ability;
