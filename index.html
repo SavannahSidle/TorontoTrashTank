@@ -54,6 +54,7 @@
               <span><strong>TRASH SHIELD</strong><small>Lid up, trouble down</small></span>
               <kbd>R</kbd>
             </div>
+
           </section>
 
           <div class="city-tag"><span class="city-dot"></span> TORONTO, ONTARIO <span>43° 39′ N</span></div>
@@ -66,7 +67,7 @@
           </div>
 
           <section class="stage-wrap" aria-label="Toronto Trash Tank game">
-            <canvas id="game" width="960" height="540" tabindex="0" aria-label="Toronto Trash Tank. Move with arrow keys or WASD, Space to jump, E to bite, and R for a trash shield."></canvas>
+            <canvas id="game" width="960" height="540" tabindex="0" aria-label="Toronto Trash Tank. Move with arrow keys or WASD, S to move down, X to sit, Space to jump, E to bite, and R for a trash shield."></canvas>
 
             <div id="overlay" class="overlay">
               <div class="panel">
@@ -106,10 +107,11 @@
 
           <div class="controls-row">
             <div class="keyboard-help" aria-label="Keyboard controls">
-              <div class="control-tile move-tile"><span class="control-caption">MOVE</span><div class="key-cluster"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></div><small>OR ARROW KEYS</small></div>
+              <div class="control-tile move-tile"><span class="control-caption">MOVE</span><div class="key-cluster"><kbd>W</kbd><span><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span></div><small>S = DOWN · OR ARROW KEYS</small></div>
               <div class="control-tile"><span class="control-caption">JUMP</span><kbd class="wide-key">SPACE</kbd></div>
               <div class="control-tile"><span class="control-caption">BITE</span><kbd class="wide-key">E</kbd></div>
               <div class="control-tile"><span class="control-caption">TRASH SHIELD</span><kbd class="wide-key">R</kbd></div>
+              <div class="control-tile"><span class="control-caption">SIT</span><kbd class="wide-key">X</kbd></div>
             </div>
             <div class="touch-controls" aria-label="Touch controls">
               <div class="touch-dpad">
@@ -120,6 +122,7 @@
                 <button type="button" data-control="jump" aria-label="Jump">JUMP</button>
                 <button id="abilityButton" type="button" data-control="primary" class="ability-control" aria-label="Use bite">BITE</button>
                 <button id="tongueButton" type="button" data-control="secondary" class="tongue-control" aria-label="Use trash shield">SHIELD</button>
+                <button type="button" id="sitButton" data-control="sit" aria-pressed="false" aria-label="Sit">SIT</button>
                 <button type="button" data-control="investigate" class="hidden" aria-label="Investigate">SNIFF</button>
               </div>
             </div>
@@ -129,6 +132,6 @@
 
       <footer class="game-footer"><span>TORONTO TRASH TANK</span><span>UNOFFICIAL CITY BUSINESS SINCE RIGHT NOW</span></footer>
     </main>
-    <script src="game.js?v=20261006-toronto-layout2"></script>
+    <script src="game.js?v=20261008-jane-sit1"></script>
   </body>
 </html>
