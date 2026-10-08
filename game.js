@@ -20,6 +20,7 @@
   const soundButton = document.querySelector("#soundButton");
   const abilityButton = document.querySelector("#abilityButton");
   const tongueButton = document.querySelector("#tongueButton");
+  const sitButton = document.querySelector("#sitButton");
 
   const W = canvas.width;
   const H = canvas.height;
@@ -64,6 +65,7 @@
   let trashShieldUntil = 0;
   let trashShieldCooldownUntil = 0;
   let raccoonImpactUntil = 0;
+  let raccoonSitting = false;
   let raccoonLandingUntil = 0;
   let raccoonCoyoteUntil = 0;
   let raccoonJumpBufferUntil = 0;
@@ -617,6 +619,8 @@
     trashShieldUntil = 0;
     trashShieldCooldownUntil = 0;
     raccoonImpactUntil = 0;
+    raccoonSitting = false;
+    if(sitButton){sitButton.textContent="SIT";sitButton.setAttribute("aria-pressed","false");sitButton.setAttribute("aria-label","Sit");}
     raccoonLandingUntil = 0;
     raccoonCoyoteUntil = 0;
     raccoonJumpBufferUntil = 0;
@@ -1086,6 +1090,7 @@
     const right = keys.ArrowRight || keys.KeyD || keys.touchRight;
     const up = keys.ArrowUp || keys.KeyW || keys.Space || keys.touchJump;
     const down = keys.ArrowDown || keys.KeyS;
+    if(selectedCharacter==="raccoon"&&raccoonSitting&&(left||right||up||down))setRaccoonSitting(false);
     if(["foxLab","foxAlt"].includes(selectedCharacter)&&level.decor==="foxMovementLab"){
       updateFoxLab(dt,now,left,right,up,keys.KeyI||keys.touchInvestigate);
       return;
@@ -1337,8 +1342,24 @@
     if (intersects(player, exit) && remainingCollectibles(level)===0) completeLevel();
   }
 
+  function setRaccoonSitting(sitting){
+    raccoonSitting=Boolean(sitting);
+    if(sitButton){
+      sitButton.textContent=raccoonSitting?"STAND":"SIT";
+      sitButton.setAttribute("aria-pressed",String(raccoonSitting));
+      sitButton.setAttribute("aria-label",raccoonSitting?"Stand up":"Sit");
+    }
+    if(raccoonSitting){player.vx=0;if(player.grounded)player.vy=0;}
+  }
+
+  function toggleRaccoonSit(){
+    if(state!=="playing"||selectedCharacter!=="raccoon"||!player.grounded)return;
+    setRaccoonSitting(!raccoonSitting);
+  }
+
   function jump() {
     if (state !== "playing") return;
+    if(selectedCharacter==="raccoon")setRaccoonSitting(false);
     const now=performance.now();
     if(levels[levelIndex]?.decor==="boatEscape")return;
     if(["foxLab","foxAlt"].includes(selectedCharacter)){
@@ -2567,18 +2588,19 @@
     const flash=now<invulnerableUntil&&Math.floor(now/90)%2===0;if(flash)ctx.globalAlpha=.4;
     const climbingPose=player.climbing&&!player.ceilingClimbing;
     ctx.save();ctx.translate(player.x+player.w/2,player.y+player.h/2);if(climbingPose)ctx.rotate(-Math.PI/2);else ctx.rotate(Math.max(-.08,Math.min(.08,player.vx*.00032)));ctx.scale(climbingPose?1:player.facing,1);
-    const moving=Math.min(1,(Math.abs(player.vx)+Math.abs(player.vy)*.72)/95);const stride=Math.sin(now*.018);const step=stride*moving*6;const airborne=!player.grounded&&!climbingPose;
-    const scamperBob=player.grounded?Math.abs(stride)*moving*2.4:0;
+    const sittingPose=raccoonSitting&&player.grounded;
+    const moving=sittingPose?0:Math.min(1,(Math.abs(player.vx)+Math.abs(player.vy)*.72)/95);const stride=Math.sin(now*.018);const step=stride*moving*6;const airborne=!player.grounded&&!climbingPose;
+    const scamperBob=sittingPose?0:player.grounded?Math.abs(stride)*moving*2.4:0;
     const landing=raccoonLandingUntil>now?Math.sin((raccoonLandingUntil-now)/190*Math.PI):0;
     const launch=Math.max(0,(raccoonLaunchUntil-now)/130),rising=airborne?Math.max(0,Math.min(1,-player.vy/455)):0;
     const breath=player.grounded&&!moving?Math.sin(now*.0045)*.6:0;
-    ctx.translate(0,scamperBob+landing*2+launch*3-rising*2);ctx.scale(1+landing*.08-launch*.08-rising*.03,1-landing*.12-launch*.11+rising*.1);
+    ctx.translate(0,scamperBob+landing*2+launch*3-rising*2+(sittingPose?3:0));ctx.scale(1+landing*.08-launch*.08-rising*.03,1-landing*.12-launch*.11+rising*.1);
     if(levels[levelIndex]?.decor==="parachute"&&airborne){
       const sway=Math.sin(now*.004)*3;ctx.strokeStyle="#e8dfd2";ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(-18,-5);ctx.lineTo(-35+sway,-48);ctx.moveTo(18,-5);ctx.lineTo(35+sway,-48);ctx.stroke();
       ctx.fillStyle="#d83f43";ctx.beginPath();ctx.moveTo(-48+sway,-48);ctx.quadraticCurveTo(sway,-82,48+sway,-48);ctx.quadraticCurveTo(25+sway,-58,sway,-47);ctx.quadraticCurveTo(-25+sway,-58,-48+sway,-48);ctx.fill();
       ctx.strokeStyle="#f5d568";ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(sway,-72);ctx.lineTo(sway,-48);ctx.stroke();
     }
-    const tailSwing=Math.sin(now*.011)*(3+moving*6)+(airborne?Math.max(-8,Math.min(9,-player.vy*.025)):0)+(climbingPose?Math.sin(now*.01)*5:0);
+    const tailSwing=sittingPose?Math.sin(now*.004)*1.2:Math.sin(now*.011)*(3+moving*6)+(airborne?Math.max(-8,Math.min(9,-player.vy*.025)):0)+(climbingPose?Math.sin(now*.01)*5:0);
     // A layered, counterbalancing tail with softer fur and rings that bend with the curve.
     ctx.strokeStyle="#6f7476";ctx.lineWidth=17;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(-20,0);ctx.bezierCurveTo(-33,-12-tailSwing*.22,-48,-8+tailSwing,-64,-15+tailSwing*.42);ctx.stroke();
     ctx.strokeStyle="#929596";ctx.lineWidth=10;ctx.beginPath();ctx.moveTo(-23,-3);ctx.bezierCurveTo(-37,-12-tailSwing*.18,-50,-9+tailSwing,-65,-15+tailSwing*.42);ctx.stroke();
@@ -2587,10 +2609,10 @@
     // Four articulated legs: two shaded far legs, then two clear foreground legs.
     const raccoonLeg=(hip,phase,front,far=false)=>{
       const rise=Math.max(-1,Math.min(1,-player.vy/430));
-      const kneeX=hip+(airborne?(front?7+rise*5:-8-rise*4):climbingPose?(front?7:-7):phase*.72);
-      const kneeY=airborne?7-Math.abs(rise)*2:climbingPose?(front?phase:-phase):12;
-      const pawX=kneeX+(airborne?(front?9:-7):climbingPose?(front?11:-10):7+phase*.28);
-      const pawY=airborne?8+Math.abs(rise)*2:climbingPose?kneeY+(front?9:-9):22;
+      const kneeX=sittingPose?hip+(front?8:7):hip+(airborne?(front?7+rise*5:-8-rise*4):climbingPose?(front?7:-7):phase*.72);
+      const kneeY=sittingPose?(front?12:14):airborne?7-Math.abs(rise)*2:climbingPose?(front?phase:-phase):12;
+      const pawX=sittingPose?hip+(front?17:-1):kneeX+(airborne?(front?9:-7):climbingPose?(front?11:-10):7+phase*.28);
+      const pawY=sittingPose?20:airborne?8+Math.abs(rise)*2:climbingPose?kneeY+(front?9:-9):22;
       ctx.globalAlpha=far?.58:1;ctx.strokeStyle=far?"#404548":"#565b5e";ctx.lineWidth=far?6:8;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(hip,5);ctx.lineTo(kneeX,kneeY);ctx.lineTo(pawX,pawY);ctx.stroke();
       ctx.fillStyle="#24282a";ctx.beginPath();ctx.ellipse(pawX+3,pawY,8,3.6,front?.08:-.08,0,Math.PI*2);ctx.fill();
       ctx.strokeStyle="#111416";ctx.lineWidth=1;const toeSpread=airborne?1.8:1;for(let toe=-1;toe<=1;toe++){ctx.beginPath();ctx.moveTo(pawX+6,pawY+toe);ctx.lineTo(pawX+11+toe*toeSpread,pawY+toe*2);ctx.stroke();}ctx.globalAlpha=1;
@@ -2598,7 +2620,7 @@
     raccoonLeg(-17,-step*.8,false,true);raccoonLeg(7,step*.8,true,true);raccoonLeg(-11,step,false);raccoonLeg(14,-step,true,false);
     // Breathing subtly expands the chest when the Trash Tank is idle.
     ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(-3,-1,31+breath,17.5+breath*.5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#5d6265";ctx.beginPath();ctx.ellipse(12,-1,18+breath*.4,17+breath*.4,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#8b8e8e";ctx.beginPath();ctx.ellipse(-7,-9,22,9,0,Math.PI,Math.PI*2);ctx.fill();
-    const headBob=(airborne?Math.max(-2,Math.min(2,player.vy*.006)):stride*moving*.9);const earTwitch=Math.max(0,Math.sin(now*.019+1.4))*((now%2400)>2180?2.2:0);const blinking=(now%3100)>2960;
+    const headBob=sittingPose?0:(airborne?Math.max(-2,Math.min(2,player.vy*.006)):stride*moving*.9);const earTwitch=Math.max(0,Math.sin(now*.019+1.4))*((now%2400)>2180?2.2:0);const blinking=(now%3100)>2960;
     ctx.save();ctx.translate(0,headBob);
     ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(25,-4,18,15,0,0,Math.PI*2);ctx.fill();
     ctx.fillStyle="#36393c";ctx.beginPath();ctx.arc(17,-14-earTwitch,7,0,Math.PI*2);ctx.arc(30,-14+earTwitch*.4,7,0,Math.PI*2);ctx.fill();ctx.fillStyle="#b58a82";ctx.beginPath();ctx.arc(17,-14-earTwitch,3.5,0,Math.PI*2);ctx.arc(30,-14+earTwitch*.4,3.5,0,Math.PI*2);ctx.fill();
@@ -2862,10 +2884,15 @@
     ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.arc(-12,30,2.7,0,Math.PI*2);ctx.arc(12,30,2.7,0,Math.PI*2);ctx.fill();
     // Black shoes rest on the deck.
     ctx.fillStyle="#050506";roundedRect(-12,57,12,6,2);ctx.fill();roundedRect(1,57,12,6,2);ctx.fill();
-    // Dark brown shoulder-length hair, face, and simple features.
-    ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-10,-5);ctx.quadraticCurveTo(-14,7,-11,22);ctx.lineTo(-7,22);ctx.lineTo(-6,1);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(10,-5);ctx.quadraticCurveTo(14,7,11,22);ctx.lineTo(7,22);ctx.lineTo(6,1);ctx.closePath();ctx.fill();
-    ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.ellipse(0,2,9,10,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-9,0);ctx.lineTo(-9,-5);ctx.quadraticCurveTo(-9,-13,0,-13);ctx.quadraticCurveTo(9,-13,9,-5);ctx.lineTo(9,0);ctx.lineTo(6,-2);ctx.lineTo(5,-5);ctx.quadraticCurveTo(0,-2,-5,-5);ctx.lineTo(-6,-2);ctx.closePath();ctx.fill();
-    ctx.strokeStyle="#694435";ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(0,-11);ctx.quadraticCurveTo(1,-8,0,-6);ctx.stroke();ctx.fillStyle="#684328";ctx.beginPath();ctx.arc(-4,2,1.4,0,Math.PI*2);ctx.arc(4,2,1.4,0,Math.PI*2);ctx.fill();ctx.restore();
+    // Simple center-parted brown bob, with a smooth crown and shoulder-length sides.
+    ctx.fillStyle="#3b241c";ctx.beginPath();
+    ctx.moveTo(-9,-4);ctx.quadraticCurveTo(-13,-15,-6,-18);ctx.quadraticCurveTo(0,-21,6,-18);ctx.quadraticCurveTo(13,-15,9,-4);
+    ctx.lineTo(11,15);ctx.quadraticCurveTo(12,22,16,25);ctx.quadraticCurveTo(11,28,7,23);ctx.quadraticCurveTo(5,18,6,10);
+    ctx.lineTo(6,-3);ctx.lineTo(-6,-3);ctx.lineTo(-6,10);ctx.quadraticCurveTo(-5,18,-7,23);ctx.quadraticCurveTo(-11,28,-16,25);
+    ctx.quadraticCurveTo(-12,22,-11,15);ctx.closePath();ctx.fill();
+    ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.ellipse(0,2,9,10,0,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle="#795847";ctx.lineWidth=.9;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(0,-18);ctx.quadraticCurveTo(0,-14,0,-10);ctx.stroke();
+    ctx.fillStyle="#684328";ctx.beginPath();ctx.arc(-4,2,1.4,0,Math.PI*2);ctx.arc(4,2,1.4,0,Math.PI*2);ctx.fill();ctx.restore();
     // Tiny Trash Tank and the evidence pile remain aboard.
     ctx.save();ctx.translate(26,-20+Math.sin(now*.018)*2);ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(0,8,18,12,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#25282a";ctx.beginPath();ctx.ellipse(12,2,11,9,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#d4d0c5";ctx.beginPath();ctx.arc(10,0,2.5,0,Math.PI*2);ctx.arc(16,0,2.5,0,Math.PI*2);ctx.fill();ctx.restore();
     ctx.fillStyle="#efce55";for(const [x,y,r] of [[48,-1,12],[64,5,10],[55,13,13],[73,15,9]]){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.fillStyle="#9c7623";ctx.beginPath();ctx.arc(x+3,y-2,2,0,Math.PI*2);ctx.fill();ctx.fillStyle="#efce55";}
@@ -2916,6 +2943,7 @@
     if (!keys[event.code] && (event.code === "Space" || event.code === "ArrowUp" || event.code === "KeyW")) jump();
     if (!keys[event.code] && event.code === "KeyE") useAbility();
     if (!keys[event.code] && event.code === "KeyR") useSecondaryAbility();
+    if (!keys[event.code] && event.code === "KeyX") toggleRaccoonSit();
     keys[event.code] = true;
   });
   window.addEventListener("keyup", event => keys[event.code] = false);
@@ -2925,6 +2953,7 @@
     const key = control === "left" ? "touchLeft" : control === "right" ? "touchRight" : control === "investigate" ? "touchInvestigate" : "touchJump";
     const press = event => {
       event.preventDefault();
+      if (control === "sit") return toggleRaccoonSit();
       if (control === "secondary") return useSecondaryAbility();
       if (control === "primary") return useAbility();
       if (control === "jump" && !keys[key]) jump();
