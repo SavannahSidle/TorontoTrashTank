@@ -2619,9 +2619,9 @@
     };
     raccoonLeg(-17,-step*.8,false,true);raccoonLeg(7,step*.8,true,true);raccoonLeg(-11,step,false);raccoonLeg(14,-step,true,false);
     // Breathing subtly expands the chest when the Trash Tank is idle.
-    ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(-3,-1,31+breath,17.5+breath*.5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#5d6265";ctx.beginPath();ctx.ellipse(12,-1,18+breath*.4,17+breath*.4,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#8b8e8e";ctx.beginPath();ctx.ellipse(-7,-9,22,9,0,Math.PI,Math.PI*2);ctx.fill();
+    if(sittingPose){ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(-4,-1,23+breath,22+breath*.4,-.12,0,Math.PI*2);ctx.fill();ctx.fillStyle="#5d6265";ctx.beginPath();ctx.ellipse(7,-4,16,18,-.08,0,Math.PI*2);ctx.fill();ctx.fillStyle="#8b8e8e";ctx.beginPath();ctx.ellipse(-6,-12,16,7,0,Math.PI,Math.PI*2);ctx.fill();ctx.fillStyle="#a1a2a0";ctx.beginPath();ctx.ellipse(8,6,8,11,-.1,0,Math.PI*2);ctx.fill();}else{    ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(-3,-1,31+breath,17.5+breath*.5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#5d6265";ctx.beginPath();ctx.ellipse(12,-1,18+breath*.4,17+breath*.4,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#8b8e8e";ctx.beginPath();ctx.ellipse(-7,-9,22,9,0,Math.PI,Math.PI*2);ctx.fill();}
     const headBob=sittingPose?0:(airborne?Math.max(-2,Math.min(2,player.vy*.006)):stride*moving*.9);const earTwitch=Math.max(0,Math.sin(now*.019+1.4))*((now%2400)>2180?2.2:0);const blinking=(now%3100)>2960;
-    ctx.save();ctx.translate(0,headBob);
+    ctx.save();ctx.translate(sittingPose?-4:0,sittingPose?-5:headBob);
     ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(25,-4,18,15,0,0,Math.PI*2);ctx.fill();
     ctx.fillStyle="#36393c";ctx.beginPath();ctx.arc(17,-14-earTwitch,7,0,Math.PI*2);ctx.arc(30,-14+earTwitch*.4,7,0,Math.PI*2);ctx.fill();ctx.fillStyle="#b58a82";ctx.beginPath();ctx.arc(17,-14-earTwitch,3.5,0,Math.PI*2);ctx.arc(30,-14+earTwitch*.4,3.5,0,Math.PI*2);ctx.fill();
     ctx.fillStyle="#232528";ctx.beginPath();ctx.moveTo(10,-11);ctx.quadraticCurveTo(25,-18,39,-8);ctx.lineTo(37,1);ctx.quadraticCurveTo(24,6,11,-1);ctx.closePath();ctx.fill();
