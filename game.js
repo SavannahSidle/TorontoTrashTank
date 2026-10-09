@@ -2884,9 +2884,14 @@
     ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.arc(-12,30,2.7,0,Math.PI*2);ctx.arc(12,30,2.7,0,Math.PI*2);ctx.fill();
     // Black shoes rest on the deck.
     ctx.fillStyle="#050506";roundedRect(-12,57,12,6,2);ctx.fill();roundedRect(1,57,12,6,2);ctx.fill();
-    // Use the same simple center-parted brown hair as Jane in Level 5.\n    ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-13,-7);ctx.quadraticCurveTo(-18,8,-15,31);ctx.lineTo(-10,31);ctx.lineTo(-9,5);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(13,-7);ctx.quadraticCurveTo(18,8,15,31);ctx.lineTo(10,31);ctx.lineTo(9,5);ctx.closePath();ctx.fill();
-      ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.ellipse(0,0,12,13,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-12,-2);ctx.quadraticCurveTo(-14,-16,0,-16);ctx.quadraticCurveTo(14,-16,12,-2);ctx.quadraticCurveTo(6,-8,0,-8);ctx.quadraticCurveTo(-6,-8,-12,-2);ctx.fill();
-      ctx.strokeStyle="#694435";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,-15);ctx.quadraticCurveTo(2,-11,0,-8);ctx.stroke();ctx.fillStyle="#684328";ctx.beginPath();ctx.arc(-5,0,1.7,0,Math.PI*2);ctx.arc(5,0,1.7,0,Math.PI*2);ctx.fill();ctx.restore();
+    // A plain center-parted crown with long, straight brown sides, matching Level 5's silhouette.
+    ctx.fillStyle="#3b241c";
+    ctx.beginPath();ctx.moveTo(-10,-5);ctx.quadraticCurveTo(-17,-12,-17,1);ctx.lineTo(-17,36);ctx.quadraticCurveTo(-17,43,-12,43);ctx.lineTo(-8,37);ctx.lineTo(-8,4);ctx.closePath();ctx.fill();
+    ctx.beginPath();ctx.moveTo(10,-5);ctx.quadraticCurveTo(17,-12,17,1);ctx.lineTo(17,36);ctx.quadraticCurveTo(17,43,12,43);ctx.lineTo(8,37);ctx.lineTo(8,4);ctx.closePath();ctx.fill();
+    ctx.fillStyle="#c68f6d";ctx.beginPath();ctx.ellipse(0,0,12,13,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle="#3b241c";ctx.beginPath();ctx.moveTo(-12,-2);ctx.quadraticCurveTo(-14,-16,0,-16);ctx.quadraticCurveTo(14,-16,12,-2);ctx.quadraticCurveTo(6,-8,0,-8);ctx.quadraticCurveTo(-6,-8,-12,-2);ctx.fill();
+    ctx.strokeStyle="#694435";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,-15);ctx.quadraticCurveTo(0,-11,0,-8);ctx.stroke();
+    ctx.fillStyle="#684328";ctx.beginPath();ctx.arc(-5,0,1.7,0,Math.PI*2);ctx.arc(5,0,1.7,0,Math.PI*2);ctx.fill();ctx.restore();
     // Tiny Trash Tank and the evidence pile remain aboard.
     ctx.save();ctx.translate(26,-20+Math.sin(now*.018)*2);ctx.fillStyle="#73777a";ctx.beginPath();ctx.ellipse(0,8,18,12,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#25282a";ctx.beginPath();ctx.ellipse(12,2,11,9,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#d4d0c5";ctx.beginPath();ctx.arc(10,0,2.5,0,Math.PI*2);ctx.arc(16,0,2.5,0,Math.PI*2);ctx.fill();ctx.restore();
     ctx.fillStyle="#efce55";for(const [x,y,r] of [[48,-1,12],[64,5,10],[55,13,13],[73,15,9]]){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.fillStyle="#9c7623";ctx.beginPath();ctx.arc(x+3,y-2,2,0,Math.PI*2);ctx.fill();ctx.fillStyle="#efce55";}
